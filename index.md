@@ -6,7 +6,7 @@ hero:
   text: 智能、多功能的QQ群聊机器人
   tagline: 基于大语言模型的聊天机器人，具有记忆系统和情感表达能力
   image:
-    src: /images/maimai.png
+    src: /avatars/icon.png
     alt: Aibot
   actions:
     - theme: brand
