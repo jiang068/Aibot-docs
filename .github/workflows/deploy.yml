@@ -43,6 +43,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build with VitePress
+        env:
+          BASE: /Aibot-docs/
         run: pnpm docs:build
       - name: Add .nojekyll to output
         run: echo "" > .vitepress/dist/.nojekyll

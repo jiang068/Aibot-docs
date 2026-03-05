@@ -2,10 +2,9 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  // 如果站点通过 GitHub Pages 在仓库子路径下（例如
-  // https://<user>.github.io/Aibot-docs/）发布，需要设置 base
-  // 以便构建时生成正确的静态资源路径。
-  base: '/Aibot-docs/',
+  // 通过环境变量控制 base，这样同一套源码可在不同部署目标使用不同资源前缀。
+  // 在 GitHub Actions 中我们会设置 BASE=/Aibot-docs/，在 Cloudflare Pages 或本地预览时保留默认 '/'
+  base: process.env.BASE || '/',
   title: "Aibot 文档中心",
   description: "Aibot 开发与使用的全方位指南",
   // 忽略死链接检查（当文档中某些旧页面已删除但还留有引用时可避免构建失败）
