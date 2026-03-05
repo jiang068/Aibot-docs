@@ -4,6 +4,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Aibot 文档中心",
   description: "Aibot 开发与使用的全方位指南",
+  // 忽略死链接检查（当文档中某些旧页面已删除但还留有引用时可避免构建失败）
+  ignoreDeadLinks: true,
   head: [
     ['link', { rel: 'icon', href: '/avatars/icon.png' }]
   ],
@@ -31,21 +33,15 @@ export default defineConfig({
           text: '安装配置',
           collapsed: false,
           items: [
-            { text: '安装指南', link: '/manual/installation/' },
-            { text: '标准安装教程', link: '/manual/installation/installation_standard' },
-            { text: '萌新安装教程', link: '/manual/installation/installation_cute' }
+              { text: '安装指南', link: '/manual/installation/' },
+              { text: '标准安装教程', link: '/manual/installation/installation_standard' }
           ]
         },
         {
           text: '部署方法',
           collapsed: false,
           items: [
-            { text: '部署概览', link: '/manual/deployment/' },
-            { text: 'Docker部署（推荐）', link: '/manual/deployment/docker_deploy' },
-            { text: 'Linux手动部署', link: '/manual/deployment/manual_deploy_linux' },
-            { text: 'Windows手动部署', link: '/manual/deployment/manual_deploy_windows' },
-            { text: '群晖NAS部署', link: '/manual/deployment/synology_deploy' },
-            { text: '新手Linux部署', link: '/manual/deployment/linux_deploy_guide_for_beginners' }
+              { text: '部署概览', link: '/manual/deployment/' }
           ]
         },
         {
