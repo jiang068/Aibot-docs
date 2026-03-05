@@ -2,10 +2,10 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "MaiMBot 文档中心",
-  description: "MaiMBot 开发与使用的全方位指南",
+  title: "Aibot 文档中心",
+  description: "Aibot 开发与使用的全方位指南",
   head: [
-    ['link', { rel: 'icon', href: '/avatars/MaiM.png' }]
+    ['link', { rel: 'icon', href: '/avatars/icon.png' }]
   ],
   themeConfig: {
     search: {
@@ -16,7 +16,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '用户手册', link: '/manual/' },
       { text: '开发文档', link: '/develop/' },
-      { text: 'GitHub', link: 'https://github.com/SengokuCola/MaiMBot' }
+      { text: 'GitHub', link: 'https://github.com/jiang068/Aibot' }
     ],
 
     sidebar: {
@@ -91,7 +91,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/SengokuCola/MaiMBot' }
+      { icon: 'github', link: 'https://github.com/jiang068/Aibot' }
     ]
   }
 })

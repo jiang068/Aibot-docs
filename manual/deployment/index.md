@@ -1,6 +1,6 @@
-# MaiMBot 部署指南
+# Aibot 部署指南
 
-本章节将介绍多种部署 MaiMBot 的方法，您可以根据自己的需求和环境选择合适的方式。
+本章节将介绍多种部署 Aibot 的方法，您可以根据自己的需求和环境选择合适的方式。
 
 ## 部署方式选择
 
@@ -12,7 +12,7 @@
 
 ### 手动部署
 
-如果您更喜欢直接在系统中运行 MaiMBot，我们提供了多种手动部署的教程：
+如果您更喜欢直接在系统中运行 Aibot，我们提供了多种手动部署的教程：
 
 - [Linux 手动部署指南](./manual_deploy_linux)
 - [Windows 手动部署指南](./manual_deploy_windows)
@@ -32,8 +32,8 @@
 
 1. **API密钥**：在部署前，需要获取 API 密钥（建议使用硅基流动）
 2. **QQ机器人**：准备一个专用于机器人的QQ账号
-3. **数据库**：所有部署方式都需要 MongoDB 数据库
-4. **配置文件**：所有部署都需要配置 `.env.prod` 和 `bot_config.toml` 文件
+3. **数据库**：本项目使用本地文件数据库（例如：`data/aibot.db`）。只需确保部署后的进程对仓库中的 `data/` 目录具有读写权限。
+4. **配置文件**：请参考仓库中的 `config/.env.example` 和 `config/bot_config.toml.example`，复制并重命名为 `.env.prod` 和 `bot_config.toml`，然后根据您的环境修改。
 
 详细的配置指南请参考 [标准配置指南](/manual/installation/installation_standard) 或 [萌新配置指南](/manual/installation/installation_cute)。
 

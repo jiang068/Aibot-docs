@@ -1,14 +1,14 @@
-# MaiMBot 项目结构
+# Aibot 项目结构
 
-本文档介绍了MaiMBot项目的整体架构、主要组件和文件组织结构，帮助开发者快速理解项目并进行二次开发。
+本文档介绍了Aibot项目的整体架构、主要组件和文件组织结构，帮助开发者快速理解项目并进行二次开发。
 
 ## 项目架构概述
 
-MaiMBot采用模块化设计，由多个相互独立但协同工作的组件构成。以下是整体架构概览：
+Aibot采用模块化设计，由多个相互独立但协同工作的组件构成。以下是整体架构概览：
 
 ```mermaid
 graph TD
-    A[MaiMBot] --> B[通信层]
+    A[Aibot] --> B[通信层]
     A --> C[核心引擎]
     A --> D[记忆系统]
     A --> E[意愿表达系统]
@@ -28,7 +28,7 @@ graph TD
     E --> E1[情感模块]
     E --> E2[表情包系统]
     
-    F --> F1[MongoDB]
+    F --> F1[Sqlite]
     F --> F2[文件存储]
 ```
 
@@ -72,7 +72,7 @@ graph TD
 
 数据存储层管理机器人的持久化数据：
 
-- MongoDB：存储结构化数据
+- Sqlite：存储结构化数据
 - 文件系统：存储媒体文件和表情包
 - 缓存机制：提高性能并减少API调用
 
@@ -83,7 +83,7 @@ graph TD
 以下是主要目录的简要说明：
 
 ```
-MaiMBot/
+Aibot/
 ├── api/                 # API服务接口
 ├── bot/                 # 核心机器人逻辑
 │   ├── commands/        # 命令处理模块
@@ -104,7 +104,7 @@ MaiMBot/
 
 ## 配置文件说明
 
-MaiMBot使用两个主要配置文件：
+Aibot使用两个主要配置文件：
 
 ### .env.prod
 
@@ -119,8 +119,6 @@ SILICONFLOW_BASE_URL=https://api.siliconflow.cn/v1
 HOST=127.0.0.1
 PORT=8080
 
-# 数据库配置
-MONGODB_URI=mongodb://localhost:27017/MegBot
 ```
 
 ### bot_config.toml
@@ -129,7 +127,7 @@ MONGODB_URI=mongodb://localhost:27017/MegBot
 
 ```toml
 [bot]
-name = "MaiM"
+name = "Aibot"
 personality = "cute"
 memory_window = 10
 
@@ -149,9 +147,8 @@ group_welcome = true
 请参考开发环境设置文档来配置本地开发环境：
 
 1. Python 3.9+
-2. MongoDB 4.4+
-3. 适当的API密钥
-4. 开发依赖安装
+2. 适当的API密钥
+3. 开发依赖安装
 
 ## 核心流程
 
@@ -161,22 +158,22 @@ group_welcome = true
 sequenceDiagram
     participant User
     participant NapCat
-    participant MaiMBot
+    participant Aibot
     participant Memory
     participant AI
     participant Database
     
     User->>NapCat: 发送消息
-    NapCat->>MaiMBot: 转发消息
-    MaiMBot->>MaiMBot: 预处理消息
-    MaiMBot->>Memory: 检索相关记忆
-    Memory->>MaiMBot: 返回上下文
-    MaiMBot->>AI: 发送请求
-    AI->>MaiMBot: 返回回复
-    MaiMBot->>MaiMBot: 后处理回复
-    MaiMBot->>Memory: 更新记忆
-    MaiMBot->>Database: 存储对话
-    MaiMBot->>NapCat: 发送回复
+    NapCat->>Aibot: 转发消息
+    Aibot->>Aibot: 预处理消息
+    Aibot->>Memory: 检索相关记忆
+    Memory->>Aibot: 返回上下文
+    Aibot->>AI: 发送请求
+    AI->>Aibot: 返回回复
+    Aibot->>Aibot: 后处理回复
+    Aibot->>Memory: 更新记忆
+    Aibot->>Database: 存储对话
+    Aibot->>NapCat: 发送回复
     NapCat->>User: 展示回复
 ```
 
@@ -185,20 +182,20 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant System
-    participant MaiMBot
+    participant Aibot
     participant Database
     participant NapCat
     participant Models
     
-    System->>MaiMBot: 启动
-    MaiMBot->>MaiMBot: 加载配置
-    MaiMBot->>Database: 连接数据库
-    Database->>MaiMBot: 连接成功
-    MaiMBot->>Models: 初始化模型
-    Models->>MaiMBot: 初始化完成
-    MaiMBot->>NapCat: 建立连接
-    NapCat->>MaiMBot: 连接成功
-    MaiMBot->>System: 启动完成
+    System->>Aibot: 启动
+    Aibot->>Aibot: 加载配置
+    Aibot->>Database: 连接数据库
+    Database->>Aibot: 连接成功
+    Aibot->>Models: 初始化模型
+    Models->>Aibot: 初始化完成
+    Aibot->>NapCat: 建立连接
+    NapCat->>Aibot: 连接成功
+    Aibot->>System: 启动完成
 ```
 
 ## 性能考量
@@ -207,12 +204,12 @@ sequenceDiagram
 
 1. **API调用优化**：减少不必要的LLM API调用以控制成本
 2. **内存使用**：在高频交互群组中注意记忆系统的内存占用
-3. **数据库索引**：确保MongoDB集合有适当的索引以提高查询性能
+3. **数据库索引**：确保 Sqlite 集合有适当的索引以提高查询性能
 4. **并发处理**：处理多个群聊的同时消息
 
 ## 扩展开发指南
 
-如需扩展MaiMBot功能，您可以：
+如需扩展Aibot功能，您可以：
 
 1. 添加新的命令处理器
 2. 实现自定义消息处理逻辑

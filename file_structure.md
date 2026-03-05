@@ -5,7 +5,7 @@
 - **README.md**: 项目的概述和使用说明。
 - **requirements.txt**: 项目所需的Python依赖包列表。
 - **bot.py**: 主启动文件，负责环境配置加载和NoneBot初始化。
-- **template.env**: 环境变量模板文件。
+- **config/.env.example**: 环境变量示例文件（复制并重命名为 `.env.prod` 后填写密钥与配置）。
 - **pyproject.toml**: Python项目配置文件。
 - **docker-compose.yml** 和 **Dockerfile**: Docker配置文件，用于容器化部署。
 - **run_*.bat**: 各种启动脚本，包括数据库、maimai和thinking功能。
@@ -28,7 +28,7 @@
 
 ## `config/` 目录
 
-- **bot_config_template.toml**: 机器人配置模板。
+- **config/bot_config.toml.example**: 机器人配置示例（复制并重命名为 `bot_config.toml` 后编辑）。
 - **auto_format.py**: 自动格式化工具。
 
 ### `src/plugins/chat/` 目录文件详细介绍

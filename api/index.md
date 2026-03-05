@@ -1,4 +1,4 @@
-# MaiMBot GraphQL API 草案
+# Aibot GraphQL API 草案
 
 ## 概述
 

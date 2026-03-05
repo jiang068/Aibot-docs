@@ -1,10 +1,10 @@
-# MaiMBot Documentation
+# Aibot Documentation
 
-This repository contains the official documentation for MaiMBot, an intelligent chatbot for QQ groups featuring LLM-based conversation capabilities, memory systems, and emotional expression.
+This repository contains the official documentation for Aibot, an intelligent chatbot for QQ groups featuring LLM-based conversation capabilities, memory systems, and emotional expression.
 
 ## About the Documentation
 
-This documentation site is built with [VitePress](https://vitepress.dev/) and covers everything you need to know about installing, configuring, and deploying MaiMBot.
+This documentation site is built with [VitePress](https://vitepress.dev/) and covers everything you need to know about installing, configuring, and deploying Aibot.
 
 ## Documentation Sections
 
